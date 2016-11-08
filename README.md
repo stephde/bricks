@@ -1,5 +1,7 @@
 # Readme for the Bricks project
 
+[![Build Status](https://travis-ci.org/stephde/bricks.svg?branch=master)](https://travis-ci.org/stephde/bricks)
+
 ## Repository setup
 
 * install nodejs
