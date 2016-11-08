@@ -1,0 +1,22 @@
+h1 {
+    margin: auto;
+    padding: 10 10 100 10;
+}
+
+#gameCanvas {
+    height: 40vh;
+    width: 65vw;
+    min-width: 500px;
+    max-width: 1000px;
+    min-height: 500px;
+    max-height: 750px;
+    border: solid 3px black;
+    display: flex;
+    margin: auto; 
+    margin-bottom: 10;
+}
+
+button {
+    display: flex;
+    margin: auto;
+}
