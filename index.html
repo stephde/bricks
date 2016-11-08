@@ -1,6 +1,10 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="css/main.css">
+
+        <script src="js/brickLoader.js"></script>
+        <script src="js/brick.js"></script>
+        <script src="js/brickRenderer.js"></script>
     </head>
     <body>
         <h1>
@@ -11,8 +15,9 @@
         <canvas id="gameCanvas">
         </canvas>
 
-        <button onclick="startGame()">startGame</button>
+        <button onclick="startGame('#gameCanvas')">startGame</button>
 
-        <script src="js/main.js"></script>
     </body>
+    <script src="js/main.js">
+    </script>
 </html>
