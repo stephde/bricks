@@ -2,7 +2,7 @@
 var brickLoader = new BrickLoader()
 var brickRenderer = new BrickRenderer()
 
-var sampleBrickData = "bbbbbbbbbbb"
+var sampleBrickData = "bbbbbbbbbbbrrrrrgggggggg"
 
 function loadData(canvasSelector) {
     brickLoader.loadBricksFromString(sampleBrickData)

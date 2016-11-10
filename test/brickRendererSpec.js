@@ -1,10 +1,18 @@
 var brickRenderer = new BrickRenderer()
 var mockCanvasContext = {
+    fillStyle: null,
+    strokeStyle: null,
     fillRect: function(){},
     strokeRect: function(){}
 }
 var sampleSelector = "#canvas"
-var sampleBricks = [new Brick(1,1), new Brick(2,1), new Brick(3,1)]
+var colors = {
+    fill: "blue",
+    stroke: "black"
+}
+var sampleBricks = [new Brick(1,1,colors), 
+                    new Brick(2,1,colors), 
+                    new Brick(3,1,colors)]
 
 describe("the BrickRenderer", function() {
 
@@ -31,5 +39,17 @@ describe("the BrickRenderer", function() {
 
         expect(mockCanvasContext.fillRect).toHaveBeenCalledTimes(sampleBricks.length)
         expect(mockCanvasContext.strokeRect).toHaveBeenCalledTimes(sampleBricks.length)
+    })
+
+    it("should render multiple colors", function() {
+        brickRenderer.setCanvasContext(mockCanvasContext)
+        spyOn(mockCanvasContext, "fillRect")
+        spyOn(mockCanvasContext, "strokeRect")
+
+        brickRenderer.render(sampleBricks)
+
+        expect(mockCanvasContext.fillStyle).toEqual(colors.fill)
+        expect(mockCanvasContext.strokeStyle).toEqual(colors.stroke)
+    
     })
 })

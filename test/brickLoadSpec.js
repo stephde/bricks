@@ -1,5 +1,5 @@
 var brickloader = new BrickLoader()
-var bricksData = "bbbbbbbbbb"
+var bricksData = "bgrbbbbbbb"
 
 describe("the BrickLoader ", function() {
 
@@ -19,5 +19,12 @@ describe("the BrickLoader ", function() {
         expect(brickloader.loadBricksFromString(bricksData)).toBe(true)
         expect(brickloader.getBricks().length).toBeGreaterThan(0)
         expect(brickloader.getBricks().length).toEqual(bricksData.length)
+    })
+
+    it("should be able to display bricks with multiple colors", function() {
+        expect(brickloader.loadBricksFromString(bricksData)).toBe(true)
+        expect(brickloader.getBricks()[0].colors.fill).toEqual("blue")
+        expect(brickloader.getBricks()[1].colors.fill).toEqual("green")
+        expect(brickloader.getBricks()[2].colors.fill).toEqual("red")
     })
 })

@@ -6,7 +6,19 @@ var BrickLoader = function() {
         //parse bricks from data
         //set bricks
         for(var i = 0; i < data.length; i++){
-            bricks.push(new Brick(i, 1))
+            var colors = {
+                stroke: "black"
+            }
+
+            switch(data[i]) {
+                case 'r':   colors.fill = "red"
+                            break
+                case'b':    colors.fill = "blue"
+                            break
+                case'g':    colors.fill = "green"
+                            break
+            }
+            bricks.push(new Brick(i, 1, colors))
         }
 
         return true
