@@ -43,9 +43,6 @@ describe("the BrickRenderer", function() {
 
     it("should render multiple colors", function() {
         brickRenderer.setCanvasContext(mockCanvasContext)
-        spyOn(mockCanvasContext, "fillRect")
-        spyOn(mockCanvasContext, "strokeRect")
-
         brickRenderer.render(sampleBricks)
 
         expect(mockCanvasContext.fillStyle).toEqual(colors.fill)

@@ -1,13 +1,24 @@
 // main module for bricks game
-var brickLoader = new BrickLoader()
-var brickRenderer = new BrickRenderer()
+var brickLoader = new BrickLoader(),
+    brickRenderer = new BrickRenderer(),
+    racketRenderer = new RacketRenderer()
 
-var sampleBrickData = "bbbbbbbbbbbrrrrrgggggggg"
+var brickData = "bbbbbbbbbbbrrrrrgggg",
+    racket = new Racket()
 
 function loadData(canvasSelector) {
-    brickLoader.loadBricksFromString(sampleBrickData)
+    brickLoader.loadBricksFromString(brickData)
+
+    //ToDo: refactor this (inheritance)
     brickRenderer.loadCanvas(canvasSelector)
+    racketRenderer.loadCanvas(canvasSelector)
+
+    render()
+}
+
+function render() {
     brickRenderer.render(brickLoader.getBricks())
+    racketRenderer.render(racket)
 }
 
 function startGame(canvasSelector) {
