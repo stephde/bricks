@@ -1,10 +1,4 @@
 var brickRenderer = new BrickRenderer()
-var mockCanvasContext = {
-    fillStyle: null,
-    strokeStyle: null,
-    fillRect: function(){},
-    strokeRect: function(){}
-}
 var sampleSelector = "#canvas"
 var colors = {
     fill: "blue",

@@ -1,11 +1,5 @@
 var racketRenderer = new RacketRenderer()
-
-var mockCanvasContext = {
-    fillStyle: null,
-    strokeStyle: null,
-    fillRect: function(){},
-    strokeRect: function(){}
-}
+racketRenderer.setCanvasContext(mockCanvasContext)
 
 var sampleRacket = new Racket()
 
@@ -16,7 +10,6 @@ describe("the RacketRenderer ", function() {
     })
 
     it("should render the racket", function() {
-        racketRenderer.setCanvasContext(mockCanvasContext)
         spyOn(mockCanvasContext, "fillRect")
         spyOn(mockCanvasContext, "strokeRect")
 
@@ -27,7 +20,6 @@ describe("the RacketRenderer ", function() {
     })
 
     it("should support racket colors", function() {
-        racketRenderer.setCanvasContext(mockCanvasContext)
         racketRenderer.render(sampleRacket)
 
         expect(mockCanvasContext.fillStyle).toEqual(sampleRacket.colors.fill)

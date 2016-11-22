@@ -19,6 +19,7 @@ module.exports = function(config) {
       {pattern: 'js/model/*.js', included: true},
       {pattern: 'js/renderer/*.js', included: true},
       {pattern: 'js/*.js', included: true},
+      {pattern: 'test/mocks.js', included: true},
       {pattern: 'test/*Spec.js', included: false}
     ],
 
