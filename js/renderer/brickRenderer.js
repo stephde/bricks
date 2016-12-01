@@ -2,11 +2,6 @@ var BrickRenderer = function() {
 
     var canvasContext
 
-    this.loadCanvas = function(selector) {
-        canvasContext = document.querySelector(selector).getContext("2d")
-        return canvasContext
-    }
-
     this.getCanvasContext = function() {
         return canvasContext
     }

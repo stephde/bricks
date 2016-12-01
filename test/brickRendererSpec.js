@@ -14,16 +14,6 @@ describe("the BrickRenderer", function() {
         expect(brickRenderer).not.toBeNull();
     })
 
-    it("should load the canvas", function() {
-        spyOn(document, "querySelector").and.returnValue({
-            getContext: function(){}
-        })
-
-        brickRenderer.loadCanvas(sampleSelector)
-
-        expect(document.querySelector).toHaveBeenCalledWith(sampleSelector)
-    })
-
     it("should render each brick", function() {
         brickRenderer.setCanvasContext(mockCanvasContext)
         spyOn(mockCanvasContext, "fillRect")

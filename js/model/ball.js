@@ -7,5 +7,13 @@ var Ball = function() {
         strokeColor: "brown"
     }
 
+    this.vx = 1
+    this.vy = 1
+
+    this.update = function() {
+        this.x += this.vx
+        this.y += this.vy
+    }
+
     return this
 }

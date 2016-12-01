@@ -1,11 +1,7 @@
 var RacketRenderer = function() {
 
     var canvasContext
-
-    this.loadCanvas = function(selector) {
-        canvasContext = document.querySelector(selector).getContext("2d")
-    }
-
+    
     this.getCanvasContext = function() {
         return canvasContext
     }
