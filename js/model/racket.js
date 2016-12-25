@@ -7,6 +7,19 @@ var Racket = function() {
         fill: "gray",
         stroke: "black"
     }
+    this.vx = 0
+
+    this.moveLeft = function() {
+        this.vx -= 0.5
+    }
+
+    this.moveRight = function() {
+        this.vx += 0.5
+    }
+
+    this.update = function() {
+        this.x += this.vx
+    }
 
     return this
 }

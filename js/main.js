@@ -6,9 +6,8 @@ var brickLoader = new BrickLoader(),
     canvasContext;
 
 var brickData = "bbbbbbbbbbbrrrrrgggg",
-    racket = new Racket(),
-    ball = new Ball()
-
+    racket,
+    ball
 
 
 function loadCanvas(selector) {
@@ -17,6 +16,9 @@ function loadCanvas(selector) {
 }
 
 function loadData(canvasSelector) {
+    racket = new Racket(),
+    ball = new Ball()
+
     canvasContext = loadCanvas(canvasSelector)
     brickLoader.loadBricksFromString(brickData)
 
@@ -24,6 +26,19 @@ function loadData(canvasSelector) {
     brickRenderer.setCanvasContext(canvasContext)
     racketRenderer.setCanvasContext(canvasContext)
     ballRenderer.setCanvasContext(canvasContext)
+}
+
+function registerEventHandling() {
+    document.addEventListener('keydown', function(event) {
+        //Left was pressed
+        if(event.keyCode == 37) {
+            racket.moveLeft()
+        }
+        //Right was pressed
+        else if(event.keyCode == 39) {
+            racket.moveRight()
+        }
+    });
 }
 
 function render() {
@@ -40,6 +55,7 @@ function render() {
 
 function update() {
     ball.update()
+    racket.update()
 }
 
 function startGame(canvasSelector) {
@@ -48,6 +64,8 @@ function startGame(canvasSelector) {
     loadData(canvasSelector)
 
     requestAnimationFrame(mainLoop)
+
+    registerEventHandling()
 
     return true
 }
