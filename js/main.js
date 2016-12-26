@@ -66,13 +66,19 @@ function detectBallCollisions() {
         ball.invertVY()
     else if(ball.y > canvas.height)
         die()
+
     //check ball against racket
+    if(ball.intersectsWithRect(racket))
+        ball.invertVY()
+
     //check ball against bricks
     // --> destroy brick
 }
 
 function detectRacketCollisions() {
     //check racket against wall
+    if(racket.x < 0 || racket.x > (canvas.width - racket.width))
+        racket.stop()
 }
 
 function detectCollisions () {

@@ -1,6 +1,10 @@
-var racket = new Racket()
+var racket
 
 describe("The racket", function() {
+
+    beforeEach(function() {
+        racket = new Racket()
+    })
 
     it("should set default values", function() {
         expect(racket.x).not.toBeLessThan(1)
@@ -33,5 +37,13 @@ describe("The racket", function() {
         racket.moveLeft()
 
         expect(racket.vx).toBeLessThan(vxOld)
+    })
+
+    it("should stop on stop", function() {
+        racket.vx = 1
+
+        racket.stop()
+
+        expect(racket.vx).toBe(0)
     })
 })

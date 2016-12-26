@@ -18,6 +18,26 @@ var Ball = function() {
         this.vy *= -1
     }
 
+    this.intersectsWithRect = function(rect) {
+        var distX = Math.abs(this.x - rect.x),
+            distY = Math.abs(this.y - rect.y)
+
+        if (distX > (rect.width / 2 + this.radius))  
+            return false
+        if (distY > (rect.height / 2 + this.radius)) 
+            return false
+
+        if (distX <= (rect.width / 2)) 
+            return true 
+        if (distY <= (rect.height / 2))
+            return true
+
+        cornerDistance_sq = Math.pow(distX - rect.width / 2, 2) +
+                            Math.pow(distY - rect.height / 2, 2)
+
+        return (cornerDistance_sq <= Math.pow(this.radius, 2))
+    }
+
     this.update = function() {
         this.x += this.vx
         this.y += this.vy

@@ -17,6 +17,10 @@ var Racket = function() {
         this.vx += 0.5
     }
 
+    this.stop = function() {
+        this.vx = 0
+    }
+
     this.update = function() {
         this.x += this.vx
     }

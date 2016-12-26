@@ -35,4 +35,16 @@ describe("The ball", function() {
 
         expect(ball.vy).toBeGreaterThan(0)
     })
+
+    it("should not intesect with default racket", function() {
+        var racket = new Racket()
+
+        expect(ball.intersectsWithRect(racket)).toBe(false)
+    })
+
+    it("should intersect with brick", function() {
+        var brick = new Brick(ball.x, ball.y)
+
+        expect(ball.intersectsWithRect(brick)).toBe(true)
+    })
 })
