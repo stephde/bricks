@@ -3,15 +3,19 @@ var brickLoader = new BrickLoader(),
     brickRenderer = new BrickRenderer(),
     racketRenderer = new RacketRenderer(),
     ballRenderer = new BallRenderer(),
-    canvasContext;
+    canvas,
+    canvasContext
 
 var brickData = "bbbbbbbbbbbrrrrrgggg",
     racket,
     ball
 
+var animationRequestId
+
 
 function loadCanvas(selector) {
-    canvasContext = document.querySelector(selector).getContext("2d")
+    canvas = document.querySelector(selector)
+    canvasContext = canvas.getContext("2d")
     return canvasContext
 }
 
@@ -53,9 +57,39 @@ function render() {
     ballRenderer.render(ball)
 }
 
+function detectBallCollisions() {
+    //check ball against wall
+    if(ball.x < 0 || ball.x > canvas.width)
+        ball.invertVX()
+
+    if(ball.y < 0)
+        ball.invertVY()
+    else if(ball.y > canvas.height)
+        die()
+    //check ball against racket
+    //check ball against bricks
+    // --> destroy brick
+}
+
+function detectRacketCollisions() {
+    //check racket against wall
+}
+
+function detectCollisions () {
+    detectBallCollisions()
+    detectRacketCollisions()
+}
+
+function die() {
+    stopAnimation()
+    alert("You lost!")
+}
+
 function update() {
     ball.update()
     racket.update()
+
+    detectCollisions()
 }
 
 function startGame(canvasSelector) {
@@ -63,7 +97,7 @@ function startGame(canvasSelector) {
 
     loadData(canvasSelector)
 
-    requestAnimationFrame(mainLoop)
+    animationRequestId = requestAnimationFrame(mainLoop)
 
     registerEventHandling()
 
@@ -73,5 +107,14 @@ function startGame(canvasSelector) {
 function mainLoop() {
     update()
     render()
-    requestAnimationFrame(mainLoop)
+    
+    if(animationRequestId)
+        animationRequestId = window.requestAnimationFrame(mainLoop)
+}
+
+function stopAnimation() {
+    if (animationRequestId) {
+       window.cancelAnimationFrame(animationRequestId);
+       animationRequestId = undefined;
+    }
 }

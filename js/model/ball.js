@@ -8,7 +8,15 @@ var Ball = function() {
     }
 
     this.vx = 1
-    this.vy = 1
+    this.vy = -1
+
+    this.invertVX = function() {
+        this.vx *= -1
+    }
+
+    this.invertVY = function() {
+        this.vy *= -1
+    }
 
     this.update = function() {
         this.x += this.vx
