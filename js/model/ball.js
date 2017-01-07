@@ -19,8 +19,8 @@ var Ball = function() {
     }
 
     this.intersectsWithRect = function(rect) {
-        var distX = Math.abs(this.x - rect.x),
-            distY = Math.abs(this.y - rect.y)
+        var distX = Math.abs(this.x - rect.x - rect.width/2),
+            distY = Math.abs(this.y - rect.y - rect.height/2)
 
         if (distX > (rect.width / 2 + this.radius))  
             return false
@@ -32,7 +32,7 @@ var Ball = function() {
         if (distY <= (rect.height / 2))
             return true
 
-        cornerDistance_sq = Math.pow(distX - rect.width / 2, 2) +
+        var cornerDistance_sq = Math.pow(distX - rect.width / 2, 2) +
                             Math.pow(distY - rect.height / 2, 2)
 
         return (cornerDistance_sq <= Math.pow(this.radius, 2))

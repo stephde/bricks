@@ -1,10 +1,9 @@
 
 var BrickLoader = function() {
-    var bricks = []
+    this.bricks = []
     
     this.loadBricksFromString = function(data) {
         //parse bricks from data
-        //set bricks
         for(var i = 0; i < data.length; i++){
             var colors = {
                 stroke: "black"
@@ -18,14 +17,23 @@ var BrickLoader = function() {
                 case'g':    colors.fill = "green"
                             break
             }
-            bricks.push(new Brick(i, 1, colors))
+            this.bricks.push(new Brick(i, 1, colors))
         }
 
         return true
     }
 
     this.getBricks = function() {
-        return bricks
+        return this.bricks
+    }
+
+    this.removeBrickAt = function(index) {
+        var removedBrick
+        if (index > -1) {
+            removedBrick = this.bricks.splice(index, 1);
+        }
+
+        return removedBrick
     }
 
     return this

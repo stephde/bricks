@@ -72,7 +72,17 @@ function detectBallCollisions() {
         ball.invertVY()
 
     //check ball against bricks
-    // --> destroy brick
+    var bricks = brickLoader.getBricks(),
+        i = 0
+    for(; i < bricks.length; i++) {
+        if(ball.intersectsWithRect(bricks[i])) {
+            ball.invertVY()
+            ball.update()
+            // --> destroy brick
+            brickLoader.removeBrickAt(index)
+            break;
+        }
+    }
 }
 
 function detectRacketCollisions() {

@@ -1,7 +1,11 @@
-var brickloader = new BrickLoader()
-var bricksData = "bgrbbbbbbb"
+var brickLoader,
+    bricksData = "bgrbbbbbbb"
 
 describe("the BrickLoader ", function() {
+
+    beforeEach(function() {
+        brickLoader = new BrickLoader()
+    })
 
     it("should be defined", function() {
         expect(BrickLoader).not.toBeNull()
@@ -12,19 +16,31 @@ describe("the BrickLoader ", function() {
     })
 
     it("should return the bricks on getBricks", function() {
-        expect(brickloader.getBricks()).not.toBeNull()
+        brickLoader.loadBricksFromString(bricksData)
+        expect(brickLoader.getBricks()).not.toBeNull()
     })
 
     it("should be able to load bricks from a string", function() {
-        expect(brickloader.loadBricksFromString(bricksData)).toBe(true)
-        expect(brickloader.getBricks().length).toBeGreaterThan(0)
-        expect(brickloader.getBricks().length).toEqual(bricksData.length)
+        expect(brickLoader.loadBricksFromString(bricksData)).toBe(true)
+        expect(brickLoader.getBricks().length).toBeGreaterThan(0)
+        expect(brickLoader.getBricks().length).toEqual(bricksData.length)
     })
 
     it("should be able to display bricks with multiple colors", function() {
-        expect(brickloader.loadBricksFromString(bricksData)).toBe(true)
-        expect(brickloader.getBricks()[0].colors.fill).toEqual("blue")
-        expect(brickloader.getBricks()[1].colors.fill).toEqual("green")
-        expect(brickloader.getBricks()[2].colors.fill).toEqual("red")
+        expect(brickLoader.loadBricksFromString(bricksData)).toBe(true)
+        expect(brickLoader.getBricks()[0].colors.fill).toEqual("blue")
+        expect(brickLoader.getBricks()[1].colors.fill).toEqual("green")
+        expect(brickLoader.getBricks()[2].colors.fill).toEqual("red")
+    })
+
+    it("should remove brick from array", function() {
+        brickLoader.loadBricksFromString(bricksData)
+        var count = brickLoader.getBricks().length,
+            oldBrick = brickLoader.getBricks()[2]
+        
+        var removedBrick = brickLoader.removeBrickAt(2)
+
+        //expect(removedBrick.x).toEqual(oldBrick.x)
+        expect(brickLoader.getBricks().length).toEqual(count - 1)
     })
 })

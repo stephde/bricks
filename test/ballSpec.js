@@ -42,6 +42,46 @@ describe("The ball", function() {
         expect(ball.intersectsWithRect(racket)).toBe(false)
     })
 
+    it("should intersect with racket", function() {
+        var racket = new Racket()
+        racket.x = 100
+        racket.y = 100
+
+        ball.x = 98
+        ball.y = 97
+        expect(ball.intersectsWithRect(racket)).toBe(true)
+        ball.x = 98
+        ball.y = 103
+        expect(ball.intersectsWithRect(racket)).toBe(true)
+
+        ball.x = 140
+        ball.y = 97
+        expect(ball.intersectsWithRect(racket)).toBe(true)
+        ball.x = 140
+        ball.y = 103
+        expect(ball.intersectsWithRect(racket)).toBe(true)
+    })
+
+    it("should not intersect with racket", function() {
+        var racket = new Racket()
+        racket.x = 100
+        racket.y = 100
+
+        ball.x = 96
+        ball.y = 97
+        expect(ball.intersectsWithRect(racket)).toBe(false)
+        ball.x = 98
+        ball.y = 116
+        expect(ball.intersectsWithRect(racket)).toBe(false)
+
+        ball.x = 148
+        ball.y = 97
+        expect(ball.intersectsWithRect(racket)).toBe(false)
+        ball.x = 140
+        ball.y = 116
+        expect(ball.intersectsWithRect(racket)).toBe(false)
+    })
+
     it("should intersect with brick", function() {
         var brick = new Brick(ball.x, ball.y)
 
