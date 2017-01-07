@@ -19,4 +19,18 @@ h1 {
 button {
     display: flex;
     margin: auto;
+    width: 7rem;
+    height: 2rem;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #faff74;
+}
+
+#description {
+    width: 65vw;
+    display: flex;
+    margin: auto;
+    margin-top: 3rem;
 }

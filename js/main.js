@@ -1,5 +1,5 @@
 // main module for bricks game
-var brickLoader = new BrickLoader(),
+var brickLoader,
     brickRenderer = new BrickRenderer(),
     racketRenderer = new RacketRenderer(),
     ballRenderer = new BallRenderer(),
@@ -11,6 +11,9 @@ var brickData = "bbbbbbbbbbbrrrrrgggg",
     ball
 
 var animationRequestId
+
+/** only do this once on site load **/
+registerEventHandling()
 
 
 function loadCanvas(selector) {
@@ -111,11 +114,11 @@ function update() {
 function startGame(canvasSelector) {
     console.log("games has started")
 
+    brickLoader = new BrickLoader()
     loadData(canvasSelector)
 
+    stopAnimation()
     animationRequestId = requestAnimationFrame(mainLoop)
-
-    registerEventHandling()
 
     return true
 }
