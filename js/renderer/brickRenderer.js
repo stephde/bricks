@@ -14,8 +14,8 @@ var BrickRenderer = function() {
         for(var i=0; i < bricks.length; i++) {
             var current = bricks[i]
             renderRect(
-                current.x * current.width,
-                current.y * current.height,
+                current.x,
+                current.y,
                 current.width - 1,
                 current.height - 1,
                 current.colors

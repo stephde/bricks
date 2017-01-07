@@ -1,8 +1,8 @@
 var Brick = function(x, y, colors) {
     this.x = x
     this.y = y
-    this.width = 15
-    this.height = 5
+    this.width = Brick.defaultWith
+    this.height = Brick.defaultHeight
     this.colors = {
         fill: colors ? colors.fill : "red",
         stroke: colors ? colors.stroke : "black"
@@ -10,3 +10,6 @@ var Brick = function(x, y, colors) {
 
     return this
 }
+
+Brick.defaultWith = 15
+Brick.defaultHeight = 7

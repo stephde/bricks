@@ -79,7 +79,7 @@ function detectBallCollisions() {
             ball.invertVY()
             ball.update()
             // --> destroy brick
-            brickLoader.removeBrickAt(index)
+            brickLoader.removeBrickAt(i)
             break;
         }
     }

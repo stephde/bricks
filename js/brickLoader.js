@@ -17,7 +17,8 @@ var BrickLoader = function() {
                 case'g':    colors.fill = "green"
                             break
             }
-            this.bricks.push(new Brick(i, 1, colors))
+            var brick = new Brick(i * Brick.defaultWith, 1 * Brick.defaultHeight, colors)
+            this.bricks.push(brick)
         }
 
         return true
