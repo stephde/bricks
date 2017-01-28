@@ -1,6 +1,6 @@
 h1 {
     margin: auto;
-    padding: 10 10 100 10;
+    padding: 10px 10px 100px 10px;
 }
 
 #gameCanvas {
@@ -13,7 +13,7 @@ h1 {
     border: solid 3px black;
     display: flex;
     margin: auto; 
-    margin-bottom: 10;
+    margin-bottom: 10px;
 }
 
 .buttonGroup {

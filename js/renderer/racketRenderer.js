@@ -1,21 +1,21 @@
 var RacketRenderer = function() {
 
-    var canvasContext
+    this.canvasContext = null
     
     this.getCanvasContext = function() {
-        return canvasContext
+        return this.canvasContext
     }
 
     this.setCanvasContext = function(newContext) {
-        canvasContext = newContext
+        this.canvasContext = newContext
     }
 
     this.render = function(racket) {
-        canvasContext.fillStyle = racket.colors.fill
-        canvasContext.strokeStyle = racket.colors.stroke
+        this.canvasContext.fillStyle = racket.colors.fill
+        this.canvasContext.strokeStyle = racket.colors.stroke
         
-        canvasContext.fillRect(racket.x, racket.y, racket.width, racket.height)
-        canvasContext.strokeRect(racket.x, racket.y, racket.width, racket.height)
+        this.canvasContext.fillRect(racket.x, racket.y, racket.width, racket.height)
+        this.canvasContext.strokeRect(racket.x, racket.y, racket.width, racket.height)
     }
 
     return this
