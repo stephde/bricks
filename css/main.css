@@ -16,12 +16,18 @@ h1 {
     margin-bottom: 10;
 }
 
-button {
-    display: flex;
+.buttonGroup {
+    display: table;
     margin: auto;
+}
+
+button {
+    display: inline;
     width: 7rem;
     height: 2rem;
     font-weight: bold;
+    margin: 2rem;
+    margin-bottom: 0;
 }
 
 button:hover {
@@ -29,7 +35,7 @@ button:hover {
 }
 
 #description {
-    width: 65vw;
+    width: 52vw;
     display: flex;
     margin: auto;
     margin-top: 3rem;

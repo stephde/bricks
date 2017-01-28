@@ -117,10 +117,24 @@ function startGame(canvasSelector) {
     brickLoader = new BrickLoader()
     loadData(canvasSelector)
 
+    //make sure animation loop is not in use anymore
     stopAnimation()
-    animationRequestId = requestAnimationFrame(mainLoop)
+    //start new animation loop
+    startAnimation()
 
     return true
+}
+
+function pauseGame() {
+    if(animationRequestId == undefined) {
+        //resume game
+        startAnimation()
+        this.value = "Pause"
+    } else {
+        //pause game
+        stopAnimation()
+        this.value = "Resume"
+    }
 }
 
 function mainLoop() {
@@ -128,7 +142,7 @@ function mainLoop() {
     render()
     
     if(animationRequestId)
-        animationRequestId = window.requestAnimationFrame(mainLoop)
+        startAnimation()
 }
 
 function stopAnimation() {
@@ -136,4 +150,8 @@ function stopAnimation() {
        window.cancelAnimationFrame(animationRequestId);
        animationRequestId = undefined;
     }
+}
+
+function startAnimation() {
+    animationRequestId = window.requestAnimationFrame(mainLoop)
 }

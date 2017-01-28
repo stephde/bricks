@@ -19,7 +19,10 @@
         <canvas id="gameCanvas">
         </canvas>
 
-        <button onclick="startGame('#gameCanvas')">Start the Game</button>
+        <div class="buttonGroup">
+            <button id="startButton" onclick="startGame('#gameCanvas')">Start the Game</button>
+            <button id="pauseButton" onclick="pauseGame()">Pause</button>
+        </div>
 
         <p id="description">
             Use the right and left arrow key to move the panel.
