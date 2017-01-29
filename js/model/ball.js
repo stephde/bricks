@@ -9,6 +9,7 @@ var Ball = function() {
 
     this.vx = 1
     this.vy = -1
+    this.speedMultiplicator = 1.1
 
     this.invertVX = function() {
         this.vx *= -1
@@ -16,6 +17,11 @@ var Ball = function() {
 
     this.invertVY = function() {
         this.vy *= -1
+    }
+
+    this.speedUp = function() {
+        this.vx *= this.speedMultiplicator
+        this.vy *= this.speedMultiplicator
     }
 
     this.intersectsWithRect = function(rect) {

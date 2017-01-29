@@ -4,7 +4,8 @@
   "description": "A simple bricks game.",
   "main": "index.js",
   "scripts": {
-    "test": "karma start karma.conf.js --single-run --browsers PhantomJS"
+    "test": "karma start karma.conf.js --single-run --browsers PhantomJS",
+    "autotest": "karma start karma.conf.js --browsers PhantomJS"
   },
   "repository": {
     "type": "git",

@@ -80,6 +80,7 @@ function detectBallCollisions() {
     for(; i < bricks.length; i++) {
         if(ball.intersectsWithRect(bricks[i])) {
             ball.invertVY()
+            ball.speedUp()
             ball.update()
             // --> destroy brick
             brickLoader.removeBrickAt(i)
