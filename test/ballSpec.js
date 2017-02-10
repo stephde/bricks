@@ -87,8 +87,8 @@ describe("The ball", function() {
 
         expect(ball.intersectsWithRect(brick)).toBe(true)
     })
-    
-    it("should increase the speed", function () {
+
+    it("should increase speed", function () {
         var vxOld = Math.abs(ball.vx),
             vyOld = Math.abs(ball.vy)
 
