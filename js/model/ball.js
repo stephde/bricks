@@ -18,6 +18,11 @@ var Ball = function() {
         this.vy *= -1
     }
 
+    this.speedUp = function () {
+        this.vx *= 1.1
+        this.vy *= 1.1
+    }
+
     this.intersectsWithRect = function(rect) {
         var distX = Math.abs(this.x - rect.x - rect.width/2),
             distY = Math.abs(this.y - rect.y - rect.height/2)
