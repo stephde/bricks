@@ -1,6 +1,17 @@
+body {
+    background: #003973; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #003973 , #E5E5BE); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #003973 , #E5E5BE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    color: rgba(58, 7, 7, 0.85);
+}
+
 h1 {
-    margin: auto;
-    padding: 10px 10px 100px 10px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 100%;
+    padding: 10px 10px 10px 10px;
 }
 
 #gameCanvas {
@@ -10,7 +21,8 @@ h1 {
     max-width: 1000px;
     min-height: 500px;
     max-height: 750px;
-    border: solid 3px black;
+    border: solid 3px rgba(125, 24, 24, 0.38);
+    background-color: rgba(6, 6, 6, 0.17);
     display: flex;
     margin: auto; 
     margin-bottom: 10px;
@@ -23,15 +35,19 @@ h1 {
 
 button {
     display: inline;
-    width: 7rem;
-    height: 2rem;
-    font-weight: bold;
+    font-size: medium;
+    color: rgba(58, 7, 7, 0.85);
+    width: 10rem;
+    height: 2.5rem;
+    font-weight: normal;
     margin: 2rem;
     margin-bottom: 0;
+    border: solid 3px rgba(125, 24, 24, 0.38);
+    background-color: rgba(6, 6, 6, 0.17);
 }
 
 button:hover {
-    background-color: #faff74;
+    background-color: rgba(6, 6, 6, 0.3);
 }
 
 #description {
